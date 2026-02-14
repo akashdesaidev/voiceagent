@@ -26,8 +26,8 @@ export class WhisperService implements ITranscriptionService {
       // Determine file extension from MIME type
       const extension = this.getExtensionFromMimeType(mimeType);
       
-      // Create a File-like object
-      const file = new File([audioBuffer], `audio.${extension}`, { type: mimeType });
+      // Create a File-like object (convert Buffer to Uint8Array for type compatibility)
+      const file = new File([new Uint8Array(audioBuffer)], `audio.${extension}`, { type: mimeType });
       
       const response = await this.client.audio.transcriptions.create({
         file: file,

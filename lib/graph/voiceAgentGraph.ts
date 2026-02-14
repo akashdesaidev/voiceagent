@@ -117,5 +117,5 @@ export async function executeVoiceAgentFlow(
     currentStep: "started",
   });
   
-  return result as VoiceAgentState;
+  return result as unknown as VoiceAgentState;
 }

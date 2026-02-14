@@ -35,10 +35,6 @@ export class CronScheduler implements ISchedulingService {
       cronExpression,
       async () => {
         await this.executeJob(jobId);
-      },
-      {
-        scheduled: true,
-        timezone: "UTC",
       }
     );
     
